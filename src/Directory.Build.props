@@ -18,7 +18,7 @@
 
     <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' AND '$(CNP_SOURCE_MODE)' == 'NUGET' ">false</UseLocalCnpSources>
     <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' AND '$(CNP_SOURCE_MODE)' == 'LOCAL' ">true</UseLocalCnpSources>
-    <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' AND '$(SolutionFileName)' == 'HCMT.CretNet.Platform.slnx' AND '$(_Exists_Cnp)' == 'true'">true</UseLocalCnpSources>
+    <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' AND '$(SolutionFileName)' == 'CretCollect.CretNet.Platform.slnx' AND '$(_Exists_Cnp)' == 'true'">true</UseLocalCnpSources>
     <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' ">false</UseLocalCnpSources>
   </PropertyGroup>
 
