@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.slnx": "xml"
+  },
+  "dotnet.defaultSolution": "CretCollect.CretNet.Platform.slnx"
+}

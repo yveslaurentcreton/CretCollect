@@ -1,0 +1,37 @@
+<Solution>
+  <Folder Name="/1 Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+  </Folder>
+  <Folder Name="/2 Scripts/">
+  </Folder>
+  <Folder Name="/3 CretNet.Platform/">
+    <Project Path="../../CretNet/src/CretNet.Platform.Blazor.Server/CretNet.Platform.Blazor.Server.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.Blazor/CretNet.Platform.Blazor.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.Data.Abstractions/CretNet.Platform.Data.Abstractions.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.Data/CretNet.Platform.Data.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.Fluxor.Generators/CretNet.Platform.Fluxor.Generators.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.Fluxor/CretNet.Platform.Fluxor.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.Playground/CretNet.Platform.Playground.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.Storage.Sharepoint/CretNet.Platform.Storage.Sharepoint.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.Storage/CretNet.Platform.Storage.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform.WebApi.Utilities/CretNet.Platform.WebApi.Utilities.csproj" />
+    <Project Path="../../CretNet/src/CretNet.Platform/CretNet.Platform.csproj" />
+  </Folder>
+  <Folder Name="/4 Shared/">
+    <Project Path="CretCollect.ServiceDefaults/CretCollect.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/5 Back-End/">
+    <Project Path="CretCollect.Application/CretCollect.Application.csproj" />
+    <Project Path="CretCollect.Domain/CretCollect.Domain.csproj" />
+    <Project Path="CretCollect.Infrastructure/CretCollect.Infrastructure.csproj" />
+    <Project Path="CretCollect.WebApi/CretCollect.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/6 Front-End/">
+    <Project Path="CretCollect.App.Server/CretCollect.App.Server.csproj" />
+    <Project Path="CretCollect.App.Wasm/CretCollect.App.Wasm.csproj" />
+  </Folder>
+  <Project Path="CretCollect.AppHost/CretCollect.AppHost.csproj" />
+</Solution>

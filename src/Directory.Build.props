@@ -1,0 +1,49 @@
+<Project>
+	<PropertyGroup>
+    <UpdateVersionProperties>true</UpdateVersionProperties>
+		<Authors>Yves-Laurent Creton</Authors>
+		<Company></Company>
+		<Product>CretCollect</Product>
+		<Copyright>© $([System.DateTime]::Now.Year) Yves-Laurent Creton</Copyright>
+		<Description>CretCollect is a free and open-source application to manage and track your video game collection.</Description>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	</PropertyGroup>
+
+  <PropertyGroup>
+    <LocalCnpFrameworkRoot Condition=" '$(LocalCnpFrameworkRoot)' == '' ">..\..\..\GitHub\CretNet\src</LocalCnpFrameworkRoot>
+    <_Exists_Cnp Condition="Exists('$(LocalCnpFrameworkRoot)/CretNet.Platform/CretNet.Platform.csproj')">true</_Exists_Cnp>
+
+    <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' AND '$(CNP_SOURCE_MODE)' == 'NUGET' ">false</UseLocalCnpSources>
+    <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' AND '$(CNP_SOURCE_MODE)' == 'LOCAL' ">true</UseLocalCnpSources>
+    <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' AND '$(SolutionFileName)' == 'HCMT.CretNet.Platform.slnx' AND '$(_Exists_Cnp)' == 'true'">true</UseLocalCnpSources>
+    <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' ">false</UseLocalCnpSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <Target Name="DisplayCretNetPlatformSourceModeInfo"
+          BeforeTargets="PrepareForBuild"
+          Condition=" '$(_CnpSourceModeInfoHasBeenDisplayed)' != 'true' ">
+    <PropertyGroup>
+      <_CnpSourceModeInfoHasBeenDisplayed>true</_CnpSourceModeInfoHasBeenDisplayed>
+    </PropertyGroup>
+    
+    <Message Text="--- CretNet.Platform Build Configuration (Project: $(MSBuildProjectName)) ---" Importance="high" />
+    <Message Text="Environment Variable (CNP_SOURCE_MODE): '$(CNP_SOURCE_MODE)'" Importance="high" />
+    <Message Text="SolutionFileName: '$(SolutionFileName)'" Importance="high" />
+    <Message Text="Expected Local CretNet.Platform Framework Root: '$(LocalCnpFrameworkRoot)'" Importance="high" />
+    <Message Text="Path Checked for _Exists_Cnp: '$(LocalCnpFrameworkRoot)/CretNet.Platform/CretNet.Platform.csproj'" Importance="high" />
+    <Message Text="Value of _Exists_Cnp: '$(_Exists_Cnp)'" Importance="high" />
+    <Message Text="---------------------------------" Importance="high" />
+    <Message Text="==> Final UseLocalCnpSources value: $(UseLocalCnpSources)" Importance="high" />
+    <Message Text="---------------------------------" Importance="high" />
+  </Target>
+</Project>

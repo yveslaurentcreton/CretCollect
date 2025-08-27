@@ -1,0 +1,75 @@
+{
+  "realm": "CretCollect",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "cretcollect-api",
+      "enabled": true,
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "protocol": "openid-connect"
+    },
+    {
+      "clientId": "cretcollect-app",
+      "enabled": true,
+      "publicClient": true,
+      "redirectUris": [
+        "http://localhost:5089/*",
+        "https://localhost:7276/*"
+      ],
+      "webOrigins": [
+        "+"
+      ],
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": true,
+      "protocol": "openid-connect"
+    },
+    {
+      "clientId": "cretcollect-openapi",
+      "enabled": true,
+      "publicClient": true,
+      "redirectUris": [
+        "http://localhost:5140/*",
+        "https://localhost:7228/*"
+      ],
+      "webOrigins": [
+        "+"
+      ],
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "protocol": "openid-connect"
+    }
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "email": "admin@example.com",
+      "emailVerified": true,
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "developer",
+      "firstName": "Developer",
+      "lastName": "Developer",
+      "email": "developer@example.com",
+      "emailVerified": true,
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "developer",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}

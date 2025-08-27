@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CretCollect.Application\CretCollect.Application.csproj" />
+  </ItemGroup>
+
+</Project>

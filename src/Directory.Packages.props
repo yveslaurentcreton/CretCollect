@@ -1,0 +1,39 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.4.1" />
+    <PackageVersion Include="Aspire.Hosting.Keycloak" Version="9.4.1-preview.1.25408.4" />
+    <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="9.4.1" />
+    <PackageVersion Include="CretNet" Version="0.4.0" />
+    <PackageVersion Include="CretNet.Blazor" Version="0.4.0" />
+    <PackageVersion Include="CretNet.FluentValidation.DependencyInjection" Version="0.4.0" />
+    <PackageVersion Include="CretNet.Platform" Version="0.4.0" />
+    <PackageVersion Include="CretNet.Platform.Blazor" Version="0.4.0" />
+    <PackageVersion Include="CretNet.Platform.Blazor.Server" Version="0.4.0" />
+    <PackageVersion Include="CretNet.Platform.Data" Version="0.4.0" />
+    <PackageVersion Include="CretNet.Platform.Data.Abstractions" Version="0.4.0" />
+    <PackageVersion Include="CretNet.Platform.Fluxor.Generators" Version="0.4.0" />
+    <PackageVersion Include="CretNet.Platform.WebApi.Utilities" Version="0.4.0" />
+    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+    <PackageVersion Include="GitVersion.MsBuild" Version="6.4.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageVersion>
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.AspNetCore.Localization" Version="2.3.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.8.0" />
+    <PackageVersion Include="Microsoft.Extensions.Localization" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.4.1" />
+    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.12.0" />
+  </ItemGroup>
+</Project>

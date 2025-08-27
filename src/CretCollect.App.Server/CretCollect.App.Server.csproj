@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CretCollect.ServiceDefaults\CretCollect.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\CretCollect.App.Wasm\CretCollect.App.Wasm.csproj" />
+      
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
+  </ItemGroup>
+
+</Project>
