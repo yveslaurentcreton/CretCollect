@@ -1,5 +1,8 @@
+using Blazored.LocalStorage;
 using CretCollect.App.Server.Components;
 using CretCollect.App.Server.General.Extensions;
+using CretCollect.App.Wasm.General.Extensions;
+using Microsoft.FluentUI.AspNetCore.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,15 @@ builder.Services.AddRazorComponents()
 
 // Security
 builder.Services.AddCretCollectAppSecurity(builder.Environment);
+
+// FluentUI
+builder.Services.AddHttpClient();
+builder.Services.AddFluentUIComponents();
+
+// App
+builder.Services.AddAppServices(
+    options => options.ScanAssemblies(typeof(Program).Assembly, typeof(CretNet.Platform.Blazor.Server._Imports).Assembly));
+builder.Services.AddBlazoredLocalStorage();
 
 var app = builder.Build();
 

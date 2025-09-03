@@ -1,0 +1,20 @@
+﻿@inherits CcComponent
+
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            <div>
+                <a @onclick="@(() => _open = !_open)">
+                    <FluentPersona Initials="@Initials" ImageSize="40px"/>
+                </a>
+                <div id="anchor"></div>
+                <div class="menu-adjust">
+                    <FluentMenu @bind-Open="_open" Anchor="anchor">
+                        <FluentMenuItem OnClick="NavigateToAccount">@Labels.Profile</FluentMenuItem>
+                        <FluentMenuItem OnClick="LogOut">Log out</FluentMenuItem>
+                    </FluentMenu>
+                </div>
+            </div>  
+        </Authorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>

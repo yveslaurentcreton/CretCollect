@@ -1,6 +1,6 @@
 ﻿using CretCollect.App.Wasm.General.Services;
+using CretNet.Platform.Blazor.Extensions;
 using CretNet.Platform.Blazor.Services;
-using CretNet.Platform.Blazor.Services.Countries;
 using FluentValidation;
 using Fluxor;
 using Fluxor.DependencyInjection;
@@ -14,6 +14,14 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         Action<FluxorOptions>? configureFluxor = null)
     {
+        // CretNet Platform
+        services.AddCnpBlazor(options =>
+        {
+            options.UseRouting();
+            options.ScanAssemblies(typeof(IAssemblyMarker).Assembly);
+            configureFluxor?.Invoke(options);
+        });
+        
         // Language
         services.AddLocalization(options => options.ResourcesPath = "Resources");
         services.Configure<RequestLocalizationOptions>(options =>
@@ -23,22 +31,14 @@ public static class ServiceCollectionExtensions
             options.AddSupportedUICultures("en", "nl");
         });
         
-        // Fluxor
-        services.AddFluxor(options =>
-        {
-            options.UseRouting();
-            options.ScanAssemblies(typeof(Program).Assembly);
-            configureFluxor?.Invoke(options);
-        });
-        
         // Validators
         services.AddValidatorsFromAssembly(typeof(Program).Assembly);
         
         // Services
         services.AddSingleton<IApplicationService, ApplicationService>();
-        services.AddScoped<IBreadcrumbService, BreadcrumbService>();
-        services.AddScoped<ICnpSectionService, CnpSectionService>();
-        services.AddScoped<ICountryService, CountryService>();
-        services.AddScoped<ICnpToastService, CnpToastService>();
+        services.AddScoped<ITimeService, TimeService>();
+        services.AddScoped<IServerTimeProvider, ServerTimeProvider>();
     }
 }
+
+internal interface IAssemblyMarker;

@@ -1,4 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+  <Choose>
+    <When Condition="'$(UseLocalCnpSources)' == 'true'">
+      <ItemGroup>
+        <ProjectReference Include="$(LocalCnpFrameworkRoot)\CretNet.Platform.Blazor.Server\CretNet.Platform.Blazor.Server.csproj" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="CretNet.Platform.Blazor.Server" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
 
   <ItemGroup>
     <ProjectReference Include="..\CretCollect.ServiceDefaults\CretCollect.ServiceDefaults.csproj" />

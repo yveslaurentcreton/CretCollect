@@ -13,7 +13,7 @@
 	</PropertyGroup>
 
   <PropertyGroup>
-    <LocalCnpFrameworkRoot Condition=" '$(LocalCnpFrameworkRoot)' == '' ">..\..\..\GitHub\CretNet\src</LocalCnpFrameworkRoot>
+    <LocalCnpFrameworkRoot Condition=" '$(LocalCnpFrameworkRoot)' == '' ">..\..\..\CretNet\src</LocalCnpFrameworkRoot>
     <_Exists_Cnp Condition="Exists('$(LocalCnpFrameworkRoot)/CretNet.Platform/CretNet.Platform.csproj')">true</_Exists_Cnp>
 
     <UseLocalCnpSources Condition=" '$(UseLocalCnpSources)' == '' AND '$(CNP_SOURCE_MODE)' == 'NUGET' ">false</UseLocalCnpSources>
