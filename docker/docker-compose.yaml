@@ -38,7 +38,7 @@ services:
       - "5108:8080"
       - "7249:443"
     environment:
-      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - cretcollect
     depends_on:
@@ -53,7 +53,7 @@ services:
       - "5045:8080"
       - "7232:443"
     environment:
-      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_ENVIRONMENT=Development
       - CretCollect__Security__Keycloak__Endpoint=http://keycloak:8080
       - CretCollect__Security__Keycloak__Realm=CretCollect
       - CretCollect__Security__Keycloak__ClientId=cretcollect-app
