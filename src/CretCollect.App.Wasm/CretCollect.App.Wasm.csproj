@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+    <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+  </PropertyGroup>
+    
+  <Choose>
+    <When Condition="'$(UseLocalCnpSources)' == 'true'">
+      <ItemGroup>
+        <ProjectReference Include="$(LocalCnpFrameworkRoot)\CretNet\CretNet.csproj" />
+        <ProjectReference Include="$(LocalCnpFrameworkRoot)\CretNet.Blazor\CretNet.Blazor.csproj" />
+        <ProjectReference Include="$(LocalCnpFrameworkRoot)\CretNet.Platform.Blazor\CretNet.Platform.Blazor.csproj" />
+        <ProjectReference Include="$(LocalCnpFrameworkRoot)\CretNet.Platform.Fluxor.Generators\CretNet.Platform.Fluxor.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="CretNet" />
+        <PackageReference Include="CretNet.Blazor" />
+        <PackageReference Include="CretNet.Platform.Blazor" />
+        <PackageReference Include="CretNet.Platform.Fluxor.Generators" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
+    <PackageReference Include="Microsoft.AspNetCore.Localization" />
+    <PackageReference Include="Microsoft.Extensions.Localization" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\General\Labels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\General\Labels.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\General\Labels.nl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.nl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\General\Labels.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Labels.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\General\Labels.en.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Labels.en.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\General\Labels.nl.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Labels.nl.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

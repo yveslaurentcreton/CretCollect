@@ -1,0 +1,63 @@
+﻿@inherits LayoutComponentBase
+
+<Fluxor.Blazor.Web.StoreInitializer />
+
+<FluentDesignTheme StorageName="cretcollect-theme" />
+<FluentDialogProvider />
+<FluentTooltipProvider />
+<FluentToastProvider RemoveToastsOnNavigation="false" />
+<FluentKeyCodeProvider />
+<FluentMenuProvider />
+
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <NotAuthorized>
+            <LoginScreen />
+        </NotAuthorized>
+        <Authorized>
+            
+            @if (IsConnectedWithApi == true)
+            {
+                <CnpInitializer />
+                
+                <FluentLayout>
+                    <FluentHeader>
+                        <CnpStack HorizontalAlignment="CnpHorizontalAlignment.Left" VerticalAlignment="CnpVerticalAlignment.Center">
+                            CretCollect
+                        </CnpStack>
+                        <FluentSpacer/>
+                        <CnpStack HorizontalAlignment="CnpHorizontalAlignment.Right" VerticalAlignment="CnpVerticalAlignment.Center">
+                            <FluentButton IconEnd="@(new Icons.Regular.Size20.Info().WithColor(Color.Fill))" BackgroundColor="var(--accent-fill-rest)" OnClick="OpenInfo"/>
+                            <CnpNotificationCenterButton/>
+                            <FluentButton IconEnd="@(new Icons.Regular.Size20.Settings().WithColor(Color.Fill))" BackgroundColor="var(--accent-fill-rest)" OnClick="OpenSiteSettings"/>
+                            <LoginDisplay/>
+                        </CnpStack>
+                    </FluentHeader>
+                    <FluentStack Class="main" Width="100%">
+                        <NavMenu />
+                        <FluentBodyContent Class="body-content">
+                            <div class="content">
+                                @Body
+                            </div>
+                        </FluentBodyContent>
+                    </FluentStack>
+                    <FluentFooter>
+                        <div class="link1">
+                        </div>
+                        <div class="link2">
+                            @ApplicationService.GetAppVersion()
+                        </div>
+                    </FluentFooter>
+                </FluentLayout>
+            }
+
+        </Authorized>
+    </AuthorizeView>
+
+</CascadingAuthenticationState>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
