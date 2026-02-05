@@ -56,7 +56,7 @@
 		}
 	},
 
-	"postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && dotnet workload install aspire && dotnet restore src/CretCollect.slnx",
+	"postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && dotnet workload install aspire wasm-tools && dotnet restore src/CretCollect.slnx",
 
 	"customizations": {
 		"vscode": {
