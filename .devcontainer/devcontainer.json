@@ -1,0 +1,77 @@
+{
+	"name": "CretCollect Development",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
+	},
+
+	// Required for debugging (.NET debugger needs ptrace)
+	"runArgs": [
+		"--cap-add=SYS_PTRACE",
+		"--security-opt", "seccomp=unconfined"
+	],
+
+	"features": {
+		"ghcr.io/devcontainers/features/dotnet:2": {
+			"version": "9.0"
+		},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"installDocker": true,
+			"installBuildx": true,
+			"installDockerCompose": true
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "lts"
+		}
+	},
+
+	"forwardPorts": [
+		5045,
+		5108,
+		7232,
+		7249,
+		17043,
+		26000
+	],
+	"portsAttributes": {
+		"5045": {
+			"label": "App (HTTP)"
+		},
+		"5108": {
+			"label": "API (HTTP)"
+		},
+		"7232": {
+			"label": "App (HTTPS)",
+			"protocol": "https"
+		},
+		"7249": {
+			"label": "API (HTTPS)",
+			"protocol": "https"
+		},
+		"17043": {
+			"label": "Aspire Dashboard"
+		},
+		"26000": {
+			"label": "Keycloak"
+		}
+	},
+
+	"postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && dotnet workload install aspire wasm-tools && dotnet restore src/CretCollect.slnx",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csharp",
+				"ms-dotnettools.csdevkit",
+				"ms-dotnettools.vscode-dotnet-runtime",
+				"eamodio.gitlens",
+				"EditorConfig.EditorConfig",
+				"streetsidesoftware.code-spell-checker",
+				"fernandoescolar.vscode-solution-explorer"
+			],
+			"settings": {
+				"dotnet.defaultSolution": "src/CretCollect.slnx"
+			}
+		}
+	}
+}
