@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/1 Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+  </Folder>
+  <Folder Name="/2 Scripts/">
+  </Folder>
+  <Folder Name="/3 Shared/">
+    <Project Path="CretCollect.ServiceDefaults/CretCollect.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/4 Back-End/">
+    <Project Path="CretCollect.Application/CretCollect.Application.csproj" Id="0bd760e2-96c5-48f4-a3a0-2f63bf0fce9b" />
+    <Project Path="CretCollect.Domain/CretCollect.Domain.csproj" Id="8852d611-7afa-4cbb-9e69-d09c4996c0e1" />
+    <Project Path="CretCollect.Infrastructure/CretCollect.Infrastructure.csproj" Id="3a13884c-88f7-4862-a0df-4d553a0fb459" />
+    <Project Path="CretCollect.WebApi/CretCollect.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/5 Front-End/">
+    <Project Path="CretCollect.App.Server/CretCollect.App.Server.csproj" />
+    <Project Path="CretCollect.App.Wasm/CretCollect.App.Wasm.csproj" />
+  </Folder>
+  <Project Path="CretCollect.AppHost/CretCollect.AppHost.csproj" />
+</Solution>

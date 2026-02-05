@@ -1,0 +1,68 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.3.3
+    command: start-dev --import-realm
+    ports:
+      - "26000:8080"
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: http://localhost:26000
+      KC_HOSTNAME_PORT: 26000
+      KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_STRICT_HTTPS: "false"
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: "true"
+      KC_HTTP_ENABLED: "true"
+    volumes:
+      - ../src/CretCollect.AppHost/realms:/opt/keycloak/data/import:ro
+    networks:
+      - cretcollect
+
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    environment:
+      POSTGRES_DB: cretcollect
+      POSTGRES_USER: postgresuser
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - "5432:5432"
+    networks:
+      - cretcollect
+
+  api:
+    build:
+      context: ..
+      dockerfile: docker/api/Dockerfile
+    ports:
+      - "5108:8080"
+      - "7249:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - cretcollect
+    depends_on:
+      - keycloak
+      - postgres
+
+  app:
+    build:
+      context: ..
+      dockerfile: docker/app/Dockerfile
+    ports:
+      - "5045:8080"
+      - "7232:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CretCollect__Security__Keycloak__Endpoint=http://keycloak:8080
+      - CretCollect__Security__Keycloak__Realm=CretCollect
+      - CretCollect__Security__Keycloak__ClientId=cretcollect-app
+    networks:
+      - cretcollect
+    depends_on:
+      - keycloak
+      - api
+
+networks:
+  cretcollect:
+    driver: bridge
